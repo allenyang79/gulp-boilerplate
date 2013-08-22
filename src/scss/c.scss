@@ -1,0 +1,79 @@
+@import "compass";
+@import "compass/reset";
+@import "susy";
+
+$total-columns  : 12;             // a 12-column grid
+$column-width   : 60px;            // each column is 4em wide
+$gutter-width   : 10px;            // 1em gutters between columns
+$grid-padding   : 10px;
+//$gutter-width;  // grid-padding equal to gutters
+.page{
+		@include susy-grid-background;
+		@include container;
+		header,footer{
+			clear:both;
+		}
+		.nav{
+			clear:both;
+			ul li{
+				float:left;
+				width:80px;
+				&:hover{
+					background:#fff;
+				}
+			}
+		}
+		.content{
+			clear:both;
+			background:rgba(0,0,0,0.5);
+			color:#fff;
+		}
+}
+@include at-breakpoint(640px 12){
+	.page{
+//		@include susy-grid-background;
+//		@include container;
+		.nav{
+			clear:both;
+			ul li{
+				float:left;
+				width:150px;
+				&:hover{
+					background:#fff;
+				}
+			}
+		}
+
+		.content{
+			@include span-columns(8,12);
+			background:rgba(255,0,0,0.1);
+			color:#f00;
+		}
+	}
+}
+
+@include at-breakpoint(960px 12){
+	.page{
+//		@include susy-grid-background;
+//		@include container;
+		.nav{
+			@include span-columns(2,12);
+			ul li{
+				//float:left;
+				float:none;
+				clear:both;
+				width:100px;
+				&:hover{
+					background:#fff;
+				}
+			}
+		}
+		.content{
+			@include span-columns(10 omega,12);
+			background:rgba(0,255,0,0.1);
+			color:#ff0;
+			clear:none;
+		}
+	}
+}
+
